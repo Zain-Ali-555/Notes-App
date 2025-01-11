@@ -38,7 +38,7 @@ li .newBtn_Span {
   color: #403b4a;
   padding: 0.5rem;
   border-radius: 25px;
-  transition: ease .3s;
+  transition: ease 0.3s;
 }
 
 li .newBtn_Span:hover {
@@ -47,10 +47,10 @@ li .newBtn_Span:hover {
 }
 
 nav ul li .newBtn {
-    color: #403b4a;
+  color: #403b4a;
 }
 nav ul li .newBtn:hover {
-    color: #e7e9bb;
+  color: #e7e9bb;
 }
 
 .notesApp {
@@ -58,17 +58,12 @@ nav ul li .newBtn:hover {
   position: relative;
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows:max-content;
+  grid-template-rows: max-content;
   justify-items: center;
 }
 
-.notesApp i {
-  font-size: 2rem;
-  cursor: pointer;
-}
-
 .txtArea_Div {
-  margin-bottom: 5rem; 
+  margin-bottom: 5rem;
   width: 15rem;
   max-width: 20rem;
   height: 15rem;
@@ -78,14 +73,31 @@ nav ul li .newBtn:hover {
   font-size: large;
   cursor: pointer;
   background-color: white;
+  /* display: flex;
+  justify-content: center;
+  flex-direction: column; */
+  position: relative;
 }
 
-.txtArea{
+.txtArea {
   border: none;
   width: 100%;
-  height: 100%;
+  height: 90%;
   resize: none;
   cursor: pointer;
   outline: none;
   font-size: large;
+}
+
+.IconsDiv {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: end;
+  cursor: default;
+}
+
+.iblack {
+  color: #403b4a;
+  cursor: pointer;
+  font-size: larger;
 }
