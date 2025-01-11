@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: linear-gradient(90deg, #403b4a, #e7e9bb);
+  color: #e7e9bb;
+  overflow: hidden;
+}
+
+nav {
+  padding: 2rem 4rem;
+  text-align: start;
+  border-radius: 0 0 120px 120px;
+  font-size: x-large;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+li .i {
+  cursor: pointer;
+  border: 2px solid #403b4a;
+  color: #403b4a;
+  padding: 0.5rem;
+  border-radius: 25px;
+}
+
+li .i:hover {
+  color: #e7e9bb;
+  background-color: #403b4a;
+}
+
+nav ul li .newBtn {
+    color: #403b4a;
+}
+nav ul li .newBtn:hover {
+    color: #e7e9bb;
+}
+
+.notesApp {
+  height: 100%;
+  width: 100%;
+  padding: 0 3.9rem;
+  display: flex;
+  position: relative;
+  position: grid; 
+}
+
+.notesApp i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.txtArea {
+  margin: 0 1rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 20px;
+  padding: 1rem;
+  border: none;
+  font-size: large;
+}
