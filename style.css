@@ -73,9 +73,6 @@ nav ul li .newBtn:hover {
   font-size: large;
   cursor: pointer;
   background-color: white;
-  /* display: flex;
-  justify-content: center;
-  flex-direction: column; */
   position: relative;
 }
 
@@ -87,6 +84,9 @@ nav ul li .newBtn:hover {
   cursor: pointer;
   outline: none;
   font-size: large;
+}
+.txtArea::placeholder{
+  color: #757575;
 }
 
 .IconsDiv {
@@ -100,4 +100,54 @@ nav ul li .newBtn:hover {
   color: #403b4a;
   cursor: pointer;
   font-size: larger;
+}
+
+.Fcolor {
+  background-color: gray;
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  z-index: 999;
+}
+
+.color {
+  background-color: #fff;
+  border: 1px solid #403b4a;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.color:hover {
+  border: 2px solid black;
+}
+
+.Rcolor {
+  background-color: red;
+
+}
+.Bcolor {
+  background-color: royalblue;
+}
+.Gcolor {
+  background-color: green;
+}
+.Ycolor {
+  background-color: yellow;
+}
+.DLcolor {
+  background-color: #e7e9bb;
+}
+.Blcolor {
+  background-color: black;
+}
+
+.Bcolor::placeholder {
+  color: white; /* Change the placeholder color */
 }

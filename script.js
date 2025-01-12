@@ -21,6 +21,7 @@ newBtn_Span.addEventListener("click", () => {
   newNote.className = "txtArea";
   newNote.title = "Open Note";
   newNote.placeholder = "Take Notes";
+  newNote.style.backgroundColor = "transparent";
   Apps.appendChild(divNote);
   divNote.appendChild(newNote);
 
@@ -30,7 +31,7 @@ newBtn_Span.addEventListener("click", () => {
   divNote.appendChild(IconsDiv);
 
   // paint Icon
-  const paintIcon = document.createElement("i");
+  let paintIcon = document.createElement("i");
   paintIcon.className = "paintIcon iblack ri-paint-fill";
   IconsDiv.appendChild(paintIcon);
 
@@ -38,6 +39,60 @@ newBtn_Span.addEventListener("click", () => {
   const moreIcon = document.createElement("i");
   moreIcon.className = "moreIcon iblack ri-more-2-fill";
   IconsDiv.appendChild(moreIcon);
-});
 
-// colorPLatee Opener
+  // colorPLatee Opener
+
+  paintIcon.addEventListener("click", () => {
+    const colorPlate = document.createElement("div");
+    colorPlate.className = "Fcolor";
+    paintIcon.appendChild(colorPlate);
+    const Rcolor = document.createElement("div");
+    Rcolor.className = "color Rcolor";
+    const Bcolor = document.createElement("div");
+    Bcolor.className = "color Bcolor";
+    const Gcolor = document.createElement("div");
+    Gcolor.className = "color Gcolor";
+    const Ycolor = document.createElement("div");
+    Ycolor.className = "color Ycolor";
+    const Wcolor = document.createElement("div");
+    Wcolor.className = "color Wcolor";
+    const Blcolor = document.createElement("div");
+    Blcolor.className = "color Blcolor";
+    colorPlate.appendChild(Rcolor);
+    colorPlate.appendChild(Bcolor);
+    colorPlate.appendChild(Gcolor);
+    colorPlate.appendChild(Ycolor);
+    colorPlate.appendChild(Wcolor);
+    colorPlate.appendChild(Blcolor);
+
+    Rcolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "red";
+      newNote.style.placeholder = "yellow";
+      newNote.style.color = "white";
+    });
+    Bcolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "royalblue";
+      newNote.style.color = "white";
+    });
+    Gcolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "green";
+      newNote.style.color = "white";
+    });
+    Ycolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "yellow";
+      newNote.style.color = "black";
+    });
+    Wcolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "white";
+      newNote.style.color = "#757575";
+    });
+    Blcolor.addEventListener("click", () => {
+      divNote.style.backgroundColor = "black";
+      newNote.style.color = "white";
+    });
+  });
+
+  document.addEventListener("click", () => {
+    colorPlate.style.display = "none";
+  });
+});
