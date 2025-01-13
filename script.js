@@ -30,7 +30,11 @@ newBtn_Span.addEventListener("click", () => {
   IconsDiv.className = "IconsDiv";
   divNote.appendChild(IconsDiv);
 
-  // paint Icon
+  // Pin Icon
+  let pinIcon = document.createElement("i");
+  pinIcon.className = "pinIcon iblack ri-pushpin-2-line";
+  IconsDiv.appendChild(pinIcon);
+
   let paintIcon = document.createElement("i");
   paintIcon.className = "paintIcon iblack ri-paint-fill";
   IconsDiv.appendChild(paintIcon);
@@ -41,6 +45,13 @@ newBtn_Span.addEventListener("click", () => {
   IconsDiv.appendChild(moreIcon);
 
   // colorPLatee Opener
+
+  divNote.addEventListener("mouseenter", () => {
+    IconsDiv.style.display = "flex";
+  });
+  divNote.addEventListener("mouseleave", () => {
+    IconsDiv.style.display = "none";
+  });
 
   paintIcon.addEventListener("click", () => {
     const colorPlate = document.createElement("div");
@@ -90,9 +101,20 @@ newBtn_Span.addEventListener("click", () => {
       divNote.style.backgroundColor = "black";
       newNote.style.color = "white";
     });
+    let closecolorPlate = (event) => {
+      if (!colorPlate.contains(event.target) && event.target !== paintIcon) {
+        colorPlate.remove();
+        document.removeEventListener("click", closecolorPlate);
+      }
+    };
+    document.addEventListener("click", closecolorPlate);
   });
 
-  document.addEventListener("click", () => {
-    colorPlate.style.display = "none";
+  pinIcon.addEventListener("click", () => {
+    if (pinIcon.className == "pinIcon iblack ri-pushpin-2-fill") {
+      pinIcon.className = "pinIcon iblack ri-pushpin-2-line";
+    } else {
+      pinIcon.className = "pinIcon iblack ri-pushpin-2-fill";
+    }
   });
 });

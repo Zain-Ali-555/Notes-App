@@ -85,12 +85,12 @@ nav ul li .newBtn:hover {
   outline: none;
   font-size: large;
 }
-.txtArea::placeholder{
+.txtArea::placeholder {
   color: #757575;
 }
 
 .IconsDiv {
-  display: flex;
+  display: none;
   gap: 0.5rem;
   justify-content: end;
   cursor: default;
@@ -100,6 +100,17 @@ nav ul li .newBtn:hover {
   color: #403b4a;
   cursor: pointer;
   font-size: larger;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iblack:hover {
+  background-color: rgba(127, 141, 125, 0.289);
+  backdrop-filter: blur(20px);
+  border-radius: 50%;
 }
 
 .Fcolor {
@@ -130,7 +141,6 @@ nav ul li .newBtn:hover {
 
 .Rcolor {
   background-color: red;
-
 }
 .Bcolor {
   background-color: royalblue;
