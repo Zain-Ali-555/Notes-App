@@ -15,6 +15,7 @@ body {
   background: linear-gradient(90deg, #403b4a, #e7e9bb);
   color: #e7e9bb;
   padding: 0 5rem;
+  position: relative;
 }
 
 nav {
@@ -160,4 +161,31 @@ nav ul li .newBtn:hover {
 
 .Bcolor::placeholder {
   color: white; /* Change the placeholder color */
+}
+
+/* opened_Note CSS */
+.opened {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #202124;
+  opacity: 85%;
+}
+
+.opened_Note {
+  background-color: white;
+  position: absolute;
+  max-width: 80vw;
+  width: 60vw;
+  height: 70vh;
+  border-radius: 20px;
+  padding: 1rem;
+  border: none;
+  font-size: large;
+  cursor: auto;
 }

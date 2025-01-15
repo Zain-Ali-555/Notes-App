@@ -117,4 +117,21 @@ newBtn_Span.addEventListener("click", () => {
       pinIcon.className = "pinIcon iblack ri-pushpin-2-fill";
     }
   });
+
+  // Increase Size of Note when open it
+
+  newNote.addEventListener("click", (event) => {
+    Apps.className = "opened";
+    divNote.className = "opened_Note";
+    event.stopPropagation();
+  });
+
+  divNote.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+  
+  Apps.addEventListener("click", () => {
+    Apps.className = "notesApp";
+    divNote.className = "txtArea_Div";
+  });
 });
