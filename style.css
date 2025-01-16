@@ -197,3 +197,59 @@ nav ul li .newBtn:hover {
 .hidden {
   display: none;
 }
+
+.delete_Confirm_Note {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #e7e9bb;
+  padding: 2rem 1rem;
+  align-items: center;
+  background-color: #403b4a6b;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  height: 8rem;
+  width: 20rem;
+  border-radius: 20px;
+  margin-left: 15rem;
+  gap: 1rem;
+  position: absolute;
+  z-index: 999;
+  bottom: .5rem;
+  right: -2.5rem;
+}
+.btns_Div {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  border: none;
+  width: 30%;
+  border-radius: 10px;
+  padding: .5rem 0;
+  cursor: pointer;
+}
+
+.cncle {
+  border: 2px solid black;
+  background-color: #e7e9bb;
+}
+
+.cncle:hover {
+  border: 2px solid black;
+  background-color: #d5d7ad;
+}
+
+.del {
+  background-color: crimson;
+  border: 2px solid black;
+  color: #e7e9bb;
+}
+
+.del:hover {
+  background-color: rgb(189, 17, 52);
+}
