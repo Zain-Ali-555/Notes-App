@@ -14,12 +14,11 @@ body {
 body {
   background: linear-gradient(90deg, #403b4a, #e7e9bb);
   color: #e7e9bb;
-  padding: 0 5rem;
   position: relative;
 }
 
 nav {
-  padding: 2rem 0;
+  padding: 2rem 5rem;
   text-align: start;
   border-radius: 0 0 120px 120px;
   font-size: x-large;
@@ -122,6 +121,7 @@ nav ul li .newBtn:hover {
   border: 1px solid black;
   position: absolute;
   display: flex;
+  margin-top: 5rem;
   justify-content: space-evenly;
   gap: 0.5rem;
   z-index: 999;
@@ -160,7 +160,7 @@ nav ul li .newBtn:hover {
 }
 
 .Bcolor::placeholder {
-  color: white; /* Change the placeholder color */
+  color: white;
 }
 
 /* opened_Note CSS */
@@ -175,6 +175,7 @@ nav ul li .newBtn:hover {
   left: 0;
   background-color: #202124;
   opacity: 85%;
+  z-index: 100;
 }
 
 .opened_Note {
@@ -188,4 +189,11 @@ nav ul li .newBtn:hover {
   border: none;
   font-size: large;
   cursor: auto;
+  z-index: 99;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.hidden {
+  display: none;
 }

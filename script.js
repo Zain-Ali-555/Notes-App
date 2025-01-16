@@ -4,6 +4,8 @@ let newBtn = document.querySelector(".newBtn_Span .newBtn");
 let divNote = document.createElement("div");
 let paintIcon = document.createElement("i");
 
+let textarea = document.querySelectorAll("txtArea_Div");
+
 newBtn_Span.addEventListener("mouseenter", () => {
   newBtn.style.color = "#e7e9bb";
   newBtn.style.backgroundColor = "transparent";
@@ -113,25 +115,47 @@ newBtn_Span.addEventListener("click", () => {
   pinIcon.addEventListener("click", () => {
     if (pinIcon.className == "pinIcon iblack ri-pushpin-2-fill") {
       pinIcon.className = "pinIcon iblack ri-pushpin-2-line";
+      divNote.style.order = "0";
     } else {
       pinIcon.className = "pinIcon iblack ri-pushpin-2-fill";
+      divNote.style.order = "-1";
     }
   });
 
   // Increase Size of Note when open it
 
   newNote.addEventListener("click", (event) => {
-    Apps.className = "opened";
-    divNote.className = "opened_Note";
+    if (divNote.className != "opened_Note") {
+      Apps.className = "opened";
+      divNote.className = "opened_Note";
+      document.querySelectorAll(".txtArea_Div").forEach((element) => {
+        element.style.display = "none"; // Hides all elements with class 'txtArea_Div'
+      });
+    }
     event.stopPropagation();
   });
 
   divNote.addEventListener("click", (event) => {
     event.stopPropagation();
   });
-  
+
   Apps.addEventListener("click", () => {
     Apps.className = "notesApp";
     divNote.className = "txtArea_Div";
+    document.querySelectorAll(".txtArea_Div").forEach((element) => {
+      element.style.display = "inline"; // Hides all elements with class 'txtArea_Div'
+    });
   });
 });
+
+function saveNotesToLocalStorage() {
+  const notes = [];
+  document.querySelectorAll(".txtArea_Div").forEach((note) => {
+    const textarea = note.querySelector(".txtArea");
+    notes.push({
+      content: textarea.value,
+      backgroundColor: note.style.backgroundColor || "white", // Save background color
+    });
+  });
+  localStorage.setItem("notes", JSON.stringify(notes));
+}
