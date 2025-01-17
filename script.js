@@ -80,7 +80,6 @@ newBtn_Span.addEventListener("click", () => {
 
     Rcolor.addEventListener("click", () => {
       divNote.style.backgroundColor = "red";
-      newNote.style.placeholder = "yellow";
       newNote.style.color = "white";
     });
     Bcolor.addEventListener("click", () => {
@@ -125,7 +124,7 @@ newBtn_Span.addEventListener("click", () => {
   deleteIcon.addEventListener("click", (event) => {
     let deleteNotification = document.createElement("div");
     deleteNotification.className = "delete_Confirm_Note";
-    deleteNotification.innerHTML = `<h5> Do you really want to <span style="color: red;"> delete </span>this note?</h5>
+    deleteNotification.innerHTML = `<h5 > Do you really want to <span style="color: red;"> delete </span>this note?</h5>
         <div class="btns_Div">
           <button class="cncle btn">Cancel</button>
           <button class="del btn">Delete</button>
