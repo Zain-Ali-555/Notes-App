@@ -198,7 +198,7 @@ nav ul li .newBtn:hover {
   display: none;
 }
 
-.delete_Confirm_Note {
+.Confirm_Note {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -216,7 +216,7 @@ nav ul li .newBtn:hover {
   gap: 1rem;
   position: absolute;
   z-index: 999;
-  bottom: .5rem;
+  bottom: 0.5rem;
   right: -2.5rem;
 }
 .btns_Div {
@@ -230,7 +230,7 @@ nav ul li .newBtn:hover {
   border: none;
   width: 30%;
   border-radius: 10px;
-  padding: .5rem 0;
+  padding: 0.5rem 0;
   cursor: pointer;
 }
 
@@ -252,4 +252,58 @@ nav ul li .newBtn:hover {
 
 .del:hover {
   background-color: rgb(189, 17, 52);
+}
+
+/* Lock */
+
+.cnfrm {
+  background-color: rgb(90, 211, 4);
+  border: 2px solid black;
+  color: #eeefcd;
+}
+
+.cnfrm:hover {
+  background-color: rgb(81, 173, 16);
+}
+.ulIcon {
+  position: absolute;
+  /* right: 15px; */
+  top: 15px;
+}
+
+.pinPopup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #e7e9bb;
+  padding: 2rem 1rem;
+  background-color: #403b4a6b;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  height: 8rem;
+  width: 15rem;
+  border-radius: 20px;
+  margin-left: 15rem;
+  gap: 1rem;
+  z-index: 999;
+  bottom: 0rem;
+  right: 0rem;
+  position: absolute;
+}
+.pinCode {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: #e7e9bb;
+}
+.pinPopup input {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: xx-large;
 }

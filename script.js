@@ -37,6 +37,7 @@ newBtn_Span.addEventListener("click", () => {
   pinIcon.className = "pinIcon iblack ri-pushpin-2-line";
   IconsDiv.appendChild(pinIcon);
 
+  // Paint Icon
   let paintIcon = document.createElement("i");
   paintIcon.className = "paintIcon iblack ri-paint-fill";
   IconsDiv.appendChild(paintIcon);
@@ -46,11 +47,17 @@ newBtn_Span.addEventListener("click", () => {
   deleteIcon.className = "deleteIcon iblack ri-delete-bin-5-fill";
   IconsDiv.appendChild(deleteIcon);
 
+  // unlock/lock Icon
+  let ulIcon = document.createElement("i");
+  ulIcon.className = "ulIcon iblack ri-lock-unlock-fill";
+  IconsDiv.appendChild(ulIcon);
+
   // colorPLatee Opener
 
   divNote.addEventListener("mouseenter", () => {
     IconsDiv.style.display = "flex";
   });
+
   divNote.addEventListener("mouseleave", () => {
     IconsDiv.style.display = "none";
   });
@@ -123,21 +130,65 @@ newBtn_Span.addEventListener("click", () => {
 
   deleteIcon.addEventListener("click", (event) => {
     let deleteNotification = document.createElement("div");
-    deleteNotification.className = "delete_Confirm_Note";
+    deleteNotification.className = "Confirm_Note";
     deleteNotification.innerHTML = `<h5 > Do you really want to <span style="color: red;"> delete </span>this note?</h5>
         <div class="btns_Div">
           <button class="cncle btn">Cancel</button>
           <button class="del btn">Delete</button>
         </div>`;
-
-    console.log(event.target);
     divNote.appendChild(deleteNotification);
+
     deleteNotification.querySelector(".del").addEventListener("click", () => {
       divNote.remove();
     });
     deleteNotification.querySelector(".cncle").addEventListener("click", () => {
       deleteNotification.remove();
     });
+  });
+
+  ulIcon.addEventListener("click", () => {
+    if (ulIcon.className == "ulIcon iblack ri-lock-unlock-fill") {
+      ulIcon.className = "ulIcon iblack ri-lock-password-fill";
+      let lockNotification = document.createElement("div");
+      lockNotification.className = "Confirm_Note";
+      lockNotification.innerHTML = `     <h5>
+          Wana <span style="color: rgb(0, 255, 4)"> Lock </span>this
+          note?
+        </h5>
+        <div class="btns_Div">
+          <button class="cncle btn">Cancel</button>
+          <button class="cnfrm btn">Confirm</button>
+        </div>`;
+      divNote.appendChild(lockNotification);
+
+      lockNotification.querySelector(".cncle").addEventListener("click", () => {
+        lockNotification.style.display = "none";
+      });
+
+      lockNotification.querySelector(".cnfrm").addEventListener("click", () => {
+        let pinCodePopup = document.createElement("div");
+        pinCodePopup.className = "pinPopup";
+        pinCodePopup.innerHTML = `<div class="pinCode">
+          <input title="digit1" oninput="moveFocus(1)" maxlength="1" type="password">
+          <input title="digit2" oninput="moveFocus(2)" maxlength="1" type="password">
+          <input title="digit3" oninput="moveFocus(3)" maxlength="1" type="password">
+          <input title="digit4" oninput="moveFocus(4)" maxlength="1" type="password">
+        </div>
+        <button class="cnfrm btn">Confirm</button>`;
+        divNote.appendChild(pinCodePopup);
+
+        lockNotification.style.display = "none";
+
+        function moveFocus(current) {
+          const nextInput = document.getElementById(`digit${current + 1}`);
+          if (nextInput && event.target.value !== "") {
+            nextInput.focus();
+          }
+        }
+      });
+    } else {
+      ulIcon.className = "ulIcon iblack ri-lock-unlock-fill";
+    }
   });
 
   // Increase Size of Note when open it
