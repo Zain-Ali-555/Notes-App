@@ -57,7 +57,8 @@ nav ul li .newBtn:hover {
   width: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  /* grid-template-columns: 25% 25% 25% 25%; */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: max-content;
   justify-items: center;
 }
@@ -209,15 +210,15 @@ nav ul li .newBtn:hover {
   backdrop-filter: blur(10px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
-  height: 8rem;
-  width: 20rem;
+  height: 100%;
+  width: 15rem;
   border-radius: 20px;
   margin-left: 15rem;
   gap: 1rem;
   position: absolute;
   z-index: 999;
-  bottom: 0.5rem;
-  right: -2.5rem;
+  bottom: 0rem;
+  right: 0rem;
 }
 .btns_Div {
   display: flex;
@@ -282,7 +283,7 @@ nav ul li .newBtn:hover {
   backdrop-filter: blur(10px);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-in-out;
-  height: 8rem;
+  height: 100%;
   width: 15rem;
   border-radius: 20px;
   margin-left: 15rem;
@@ -306,4 +307,31 @@ nav ul li .newBtn:hover {
   outline: none;
   text-align: center;
   font-size: xx-large;
+}
+
+
+
+.noteCover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.pinPopup .errorMessage {
+  margin-top: 10px;
+  color: red;
+  font-size: 0.9rem;
+  display: none;
 }

@@ -147,49 +147,125 @@ newBtn_Span.addEventListener("click", () => {
   });
 
   ulIcon.addEventListener("click", () => {
-    if (ulIcon.className == "ulIcon iblack ri-lock-unlock-fill") {
-      ulIcon.className = "ulIcon iblack ri-lock-password-fill";
-      let lockNotification = document.createElement("div");
-      lockNotification.className = "Confirm_Note";
-      lockNotification.innerHTML = `     <h5>
-          Wana <span style="color: rgb(0, 255, 4)"> Lock </span>this
-          note?
-        </h5>
-        <div class="btns_Div">
-          <button class="cncle btn">Cancel</button>
-          <button class="cnfrm btn">Confirm</button>
-        </div>`;
-      divNote.appendChild(lockNotification);
+    if (ulIcon.className === "ulIcon iblack ri-lock-unlock-fill") {
+        ulIcon.className = "ulIcon iblack ri-lock-password-fill";
 
-      lockNotification.querySelector(".cncle").addEventListener("click", () => {
-        lockNotification.style.display = "none";
-      });
+        let lockNotification = document.createElement("div");
+        lockNotification.className = "Confirm_Note";
+        lockNotification.innerHTML = `
+            <h5>
+                Wana <span style="color: rgb(0, 255, 4)">Lock</span> this note?
+            </h5>
+            <div class="btns_Div">
+                <button class="cncle btn">Cancel</button>
+                <button class="cnfrm btn">Confirm</button>
+            </div>`;
+        divNote.appendChild(lockNotification);
 
-      lockNotification.querySelector(".cnfrm").addEventListener("click", () => {
+        // Cancel Button Handler
+        lockNotification.querySelector(".cncle").addEventListener("click", () => {
+            lockNotification.style.display = "none";
+            ulIcon.className = "ulIcon iblack ri-lock-unlock-fill";
+        });
+
+        // Confirm Button Handler
+        lockNotification.querySelector(".cnfrm").addEventListener("click", () => {
+            let storedPin = "";
+
+            let pinCodePopup = document.createElement("div");
+            pinCodePopup.className = "pinPopup";
+            pinCodePopup.innerHTML = `
+                <div class="pinCode">
+                    <input type="password" maxlength="1" class="digit digit1">
+                    <input type="password" maxlength="1" class="digit digit2">
+                    <input type="password" maxlength="1" class="digit digit3">
+                    <input type="password" maxlength="1" class="digit digit4">
+                </div>
+                <button class="lock cnfrm btn">Lock</button>`;
+            divNote.appendChild(pinCodePopup);
+            lockNotification.style.display = "none";
+
+            let inputs = pinCodePopup.querySelectorAll(".pinPopup input");
+            let lockBtn = pinCodePopup.querySelector(".lock");
+
+            // Input field navigation logic
+            inputs.forEach((elem, index) => {
+                elem.addEventListener("input", (event) => {
+                    if (event.target.value !== "" && index < inputs.length - 1) {
+                        inputs[index + 1].focus(); // Move to the next input
+                    }
+                });
+
+                elem.addEventListener("keydown", (event) => {
+                    if (event.key === "Backspace" && index > 0 && elem.value === "") {
+                        inputs[index - 1].focus(); // Move back to the previous input
+                    }
+                });
+            });
+
+            // Lock Button Handler
+            lockBtn.addEventListener("click", () => {
+                storedPin = Array.from(inputs)
+                    .map((elem) => elem.value)
+                    .join("");
+
+                if (storedPin.length !== 4) {
+                    alert("You must enter a valid 4-digit PIN!");
+                    inputs.forEach((input) => (input.value = "")); // Clear the inputs
+                    inputs[0].focus(); // Focus back to the first input
+                } else {
+                    alert(`Your PIN is now locked as: ${storedPin}`);
+                    pinCodePopup.style.display = "none"; // Close the popup
+                }
+            });
+        });
+    } else {
+        ulIcon.className = "ulIcon iblack ri-lock-unlock-fill";
+
         let pinCodePopup = document.createElement("div");
         pinCodePopup.className = "pinPopup";
-        pinCodePopup.innerHTML = `<div class="pinCode">
-          <input title="digit1" oninput="moveFocus(1)" maxlength="1" type="password">
-          <input title="digit2" oninput="moveFocus(2)" maxlength="1" type="password">
-          <input title="digit3" oninput="moveFocus(3)" maxlength="1" type="password">
-          <input title="digit4" oninput="moveFocus(4)" maxlength="1" type="password">
-        </div>
-        <button class="cnfrm btn">Confirm</button>`;
+        pinCodePopup.innerHTML = `
+            <div class="pinCode">
+                <input type="password" maxlength="1" class="digit digit1">
+                <input type="password" maxlength="1" class="digit digit2">
+                <input type="password" maxlength="1" class="digit digit3">
+                <input type="password" maxlength="1" class="digit digit4">
+            </div>
+            <button class="sbmt cnfrm btn">Confirm</button>`;
         divNote.appendChild(pinCodePopup);
 
-        lockNotification.style.display = "none";
+        let inputs = pinCodePopup.querySelectorAll(".pinPopup input");
+        inputs.forEach((elem, index) => {
+            elem.addEventListener("input", (event) => {
+                if (event.target.value !== "" && index < inputs.length - 1) {
+                    inputs[index + 1].focus();
+                }
+            });
 
-        function moveFocus(current) {
-          const nextInput = document.getElementById(`digit${current + 1}`);
-          if (nextInput && event.target.value !== "") {
-            nextInput.focus();
-          }
-        }
-      });
-    } else {
-      ulIcon.className = "ulIcon iblack ri-lock-unlock-fill";
+            elem.addEventListener("keydown", (event) => {
+                if (event.key === "Backspace" && index > 0 && elem.value === "") {
+                    inputs[index - 1].focus();
+                }
+            });
+        });
+
+        pinCodePopup.querySelector(".sbmt").addEventListener("click", () => {
+            let storedPin = Array.from(inputs)
+                .map((elem) => elem.value)
+                .join("");
+
+            if (storedPin.length !== 4) {
+                alert("You must enter a valid 4-digit PIN!");
+                inputs.forEach((input) => (input.value = "")); // Clear the inputs
+                inputs[0].focus(); // Focus back to the first input
+            } else {
+                console.log(`PIN Entered: ${storedPin}`);
+                pinCodePopup.style.display = "none"; // Close the popup
+            }
+        });
     }
-  });
+});
+
 
   // Increase Size of Note when open it
 
