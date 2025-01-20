@@ -310,28 +310,24 @@ nav ul li .newBtn:hover {
 }
 
 
-
-.noteCover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
+.flex{
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  border-radius: 8px;
-  z-index: 2;
-}
-
-.pinPopup .errorMessage {
-  margin-top: 10px;
-  color: red;
-  font-size: 0.9rem;
-  display: none;
+  flex-direction: column;
+  color: #eeefcd;
+  padding: 2rem 1rem;
+  background-color: #403b4a6b;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+  width: 15rem;
+  border-radius: 20px;
+  margin-left: 15rem;
+  gap: 1rem;
+  z-index: 999;
+  bottom: 0rem;
+  right: 0rem;
+  position: absolute;
 }
